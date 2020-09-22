@@ -1,0 +1,44 @@
+## 使用druid配置数据源
+spring:
+  application:
+    name: matrix-sales-shipment
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: Smart_888
+      url: jdbc:mysql://192.168.0.55:8635/matrix_sales?characterEncoding=UTF-8
+      max-active: 20
+      validation-query: SELECT 1 FROM DUAL
+      initial-size: 10
+      max-wait: 60000
+  redis:
+      database: 0
+      port: 6379
+      host: 49.4.10.118
+      timeout: 800000
+      password:
+      pool:
+        max-active: 10000
+        max-wait: 100000
+        max-idle: 8
+        min-idle: 0
+## eureka server 地址， 根据实际情况设置eureka server地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server-vpc.default.svc.cluster.local:8080/eureka
+  instance:
+    prefer-ip-address: true
+
+server:
+  servlet:
+    context-path: /sales
+
+erp:
+  product: ZUUL-SERVER
+  shipment: ZUUL-SERVER
+  basic: ZUUL-SERVER
+  rules: ZUUL-SERVER
+  sys: ZUUL-SERVER

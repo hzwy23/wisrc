@@ -1,0 +1,40 @@
+spring:
+  http:
+    encoding:
+      charset: utf-8
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 209715200
+      max-request-size: 209715200
+  thymeleaf:
+    prefix: classpath:/templates/
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 9600000
+
+ribbon:
+  ReadTimeout: 2400000
+  ConnectTimeout: 2400000
+
+request:
+  user:
+    key: X-AUTH-ID
+
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+  auto-runtime-dialect: true

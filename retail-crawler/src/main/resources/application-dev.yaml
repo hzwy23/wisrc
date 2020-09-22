@@ -1,0 +1,17 @@
+shipmentInfo:
+  #"物流信息url"
+  trackingUrl: http://122.112.238.169:8001/logistics/api/tracking?carrier={carrier}&trackingNumber={trackingNumber}
+  #"亚马逊销量信息url"
+  saleRecordUrl: http://122.112.238.169:8001/logistics/api/sales/getSalesInfo?sellerId={sellerId}&msku={msku}
+  #"亚马逊库存信息url"
+  mskuStockUrl: http://122.112.238.169:8001/logistics/api/stock/getStockInfo?sellerId={sellerId}&fnsku={fnsku}
+  #"入库货件信息url"
+  shipmentInfoUrl: http://122.112.238.169:8001/logistics/api/inboundShipment/getShipmentInfo?sellerId={sellerId}&shipmentId={shipmentId}
+  #"移除订单信息url"
+  removeOrderInfoUrl: http://122.112.238.169:8001/logistics/api/orderInfo/getRemovalOrderInfo?sellerId={sellerId}&orderId={orderId}
+  #"亚马逊商品信息url"
+  mskuInfoUrl: http://122.112.238.169:8001/logistics/api/productInfo/getProductPriceInfo?msku={msku}&sellerId={sellerId}
+  #"商品上架时间url"
+  shelveInfoUrl: http://122.112.238.169:8001/logistics/api/productInfo/shelve/{asin}
+  #"批量亚马逊销量信息url"
+  saleRecordBatchUrl: http://122.112.238.169:8001/logistics/api/sales/getSalesInfoList

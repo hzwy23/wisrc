@@ -1,0 +1,51 @@
+## 使用druid配置数据源
+spring:
+  application:
+    name: matrix-order
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: Matrix_2018
+      url: jdbc:mysql://172.16.0.171:8635/matrix_order?characterEncoding=UTF-8
+      max-active: 20
+      validation-query: SELECT 1 FROM DUAL
+      initial-size: 10
+      max-wait: 60000
+  redis:
+    database: 0
+    port: 6379
+    host: 172.16.0.224
+    timeout: 800000
+    password:
+    pool:
+      max-active: 10000
+      max-wait: 100000
+      max-idle: 8
+      min-idle: 0
+
+## eureka server 地址， 根据实际情况设置eureka server地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server.default.svc.cluster.local:8080/eureka
+  instance:
+    prefer-ip-address: true
+
+server:
+  servlet:
+    context-path: /order
+
+erp:
+  product: ERP-PRODUCT
+  operation: MERCHANDISE-SERVER
+  shipment: MATRIX-SHIPMENT
+  basic: MATRIX-BASIC
+  sys: ERP-SYS
+  replenishment: MATRIX-REPLENISHMENT
+  shop: MERCHANDISE-SERVER
+  warehouse: MATRIX-WAREHOUSE
+  images: IMAGES-SERVER
+  code: MATRIX-CODE
+  rules: MATRIX-RULES

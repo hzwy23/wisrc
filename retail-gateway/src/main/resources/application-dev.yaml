@@ -1,0 +1,219 @@
+## 使用druid配置数据源
+spring:
+  application:
+    name: erp-sys-dev
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      gateway:
+        username: root
+        password: zhanwei
+        url: jdbc:mysql://118.31.46.174:3306/erp_sys?characterEncoding=UTF-8
+        max-active: 20
+        validation-query: SELECT 1 FROM DUAL
+        initial-size: 10
+        max-wait: 60000
+      sys:
+        username: root
+        password: zhanwei
+        url: jdbc:mysql://118.31.46.174:3306/erp_sys?characterEncoding=UTF-8
+        max-active: 20
+        validation-query: SELECT 1 FROM DUAL
+        initial-size: 10
+        max-wait: 60000
+      code:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: zhanwei
+        url: jdbc:mysql://118.31.46.174:3306/matrix_code?characterEncoding=UTF-8
+        max-active: 20
+        validation-query: SELECT 1 FROM DUAL
+        initial-size: 10
+        max-wait: 60000
+      basic:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: zhanwei
+        url: jdbc:mysql://118.31.46.174:3306/matrix_basic?characterEncoding=UTF-8
+        max-active: 20
+        validation-query: SELECT 1 FROM DUAL
+        initial-size: 10
+        max-wait: 60000
+      supplier:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: zhanwei
+        url: jdbc:mysql://118.31.46.174:3306/erp_supplier?characterEncoding=UTF-8
+        max-active: 20
+        validation-query: SELECT 1 FROM DUAL
+        initial-size: 10
+        max-wait: 60000
+      product:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: zhanwei
+        url: jdbc:mysql://118.31.46.174:3306/erp_product?characterEncoding=UTF-8
+        max-active: 20
+        validation-query: SELECT 1 FROM DUAL
+        initial-size: 10
+        max-wait: 60000
+      merchandise:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: zhanwei
+        url: jdbc:mysql://118.31.46.174:3306/erp_operation?characterEncoding=UTF-8
+        max-active: 20
+        validation-query: SELECT 1 FROM DUAL
+        initial-size: 10
+        max-wait: 60000
+      order:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: zhanwei
+        url: jdbc:mysql://118.31.46.174:3306/matrix_order?characterEncoding=UTF-8
+        max-active: 20
+        validation-query: SELECT 1 FROM DUAL
+        initial-size: 10
+        max-wait: 60000
+      shipment:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: zhanwei
+        url: jdbc:mysql://118.31.46.174:3306/matrix_shipment?characterEncoding=UTF-8
+        max-active: 20
+        validation-query: SELECT 1 FROM DUAL
+        initial-size: 10
+        max-wait: 60000
+      wms:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: zhanwei
+        url: jdbc:mysql://118.31.46.174:3306/matrix_wms?characterEncoding=UTF-8
+        max-active: 20
+        validation-query: SELECT 1 FROM DUAL
+        initial-size: 10
+        max-wait: 60000
+      purchase:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: zhanwei
+        url: jdbc:mysql://118.31.46.174:3306/matrix_purchase?characterEncoding=UTF-8
+        max-active: 20
+        validation-query: SELECT 1 FROM DUAL
+        initial-size: 10
+        max-wait: 60000
+      warehouse:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: zhanwei
+        url: jdbc:mysql://118.31.46.174:3306/matrix_warehouse?characterEncoding=UTF-8
+        max-active: 20
+        validation-query: SELECT 1 FROM DUAL
+        initial-size: 10
+        max-wait: 60000
+      replenishment:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: zhanwei
+        url: jdbc:mysql://118.31.46.174:3306/matrix_replenishment?characterEncoding=UTF-8
+        max-active: 20
+        validation-query: SELECT 1 FROM DUAL
+        initial-size: 10
+        max-wait: 60000
+      quality:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: zhanwei
+        url: jdbc:mysql://118.31.46.174:3306/matrix_quality?characterEncoding=UTF-8
+        max-active: 20
+        validation-query: SELECT 1 FROM DUAL
+        initial-size: 10
+        max-wait: 60000
+      rules:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: zhanwei
+        url: jdbc:mysql://118.31.46.174:3306/matrix_rules?characterEncoding=UTF-8
+        max-active: 20
+        validation-query: SELECT 1 FROM DUAL
+        initial-size: 10
+        max-wait: 60000
+      sales:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: root
+        password: zhanwei
+        url: jdbc:mysql://118.31.46.174:3306/matrix_sales?characterEncoding=UTF-8
+        max-active: 20
+        validation-query: SELECT 1 FROM DUAL
+        initial-size: 10
+        max-wait: 60000
+  redis:
+    database: 0
+    port: 16379
+    host: 118.31.46.174
+    timeout: 800000
+    password:
+    pool:
+      max-active: 10000
+      max-wait: 100000
+      max-idle: 8
+      min-idle: 0
+
+logging:
+  level:
+    root: info
+
+## jwt 参数管理
+# login uri
+login:
+  url: /login
+  identifyUrl: http://49.4.2.78:8790/login
+  identify:
+    type: db
+
+## jwt使用的配置信息
+#  expireTime表示token有效期限，
+#  secret表示加密时使用到的key，
+#  key表示token在header中的值
+token:
+  expireTime: 604800000
+  secret: hzwy23@163.com-jwt
+  key: Authorization
+  salt: Bearer
+
+erp:
+  web:
+    url: http://49.4.10.118
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+  auto-runtime-dialect: true
+
+obs:
+  endPoint: obs.cn-north-1.myhwclouds.com
+  ak: GHLIUPMPSKLFBAN4D1J6
+  sk: oVqSEyF2p9xmbItMGkyKXXbUpFPb89I7t8VPcrzv
+
+wms:
+  url: http://test.topwms.cn:8082/zgjk/wisen/api/service?access_token=123
+
+
+
+boxDetailUrl: http://49.4.10.118:8790/images/resource/matrix-replenishment/
+logisticsInfoUrl: http://49.4.10.118:8790/images/resource/matrix-replenishment/
+clearanceInvoiceUrl: http://49.4.10.118:8790/replenishment/clearance/downLoad/
+customsInfoUrl: http://49.4.10.118:8790/replenishment/download/customsData/
+boxInfoUrl: http://49.4.10.118:8790/images/resource/matrix-replenishment/
+
+estimate:
+  lockDays: 14

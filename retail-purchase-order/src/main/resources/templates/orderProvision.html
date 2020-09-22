@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd ">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>采购订单模板</title>
+    <style>
+        body {
+            font-family: SimSun, serif;
+            margin: 0;
+        }
+
+        .clear:before {
+            clear: both;
+            height: 0;
+            line-height: 0;
+        }
+
+        .header {
+            margin: 0 auto;
+            border: 1px solid black;
+            border-right: 0;
+            border-bottom: 0;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        .header td {
+            font-size: 10pt;
+            border-right: solid 1px black;
+            border-bottom: solid 1px black;
+            padding: 8px 0;
+        }
+
+        .header th {
+            border-right: solid 1px black;
+            border-bottom: solid 1px black;
+            font-size: 11pt;
+        }
+
+        .headTable {
+            width: 870px;
+            margin: 0 auto 0 30px;
+        }
+
+        .headTable td {
+            margin-left: 50px;
+            font-size: 11pt;
+            font-weight: bold;
+            width: 400px;
+        }
+
+        .headTable td span {
+            font-size: 10pt;
+            font-weight: normal;
+        }
+
+        .orderProvisionContent {
+            margin-top: 2px;
+        }
+
+        .orderProvisionContent p {
+            margin: 0;
+        }
+
+        .orderProvisionContent hr {
+            margin: 2px 0;
+        }
+
+        hr {
+            height: 1px;
+            color: black;
+            border-style: solid none none none;
+        }
+
+    </style>
+</head>
+<body>
+<div style="width: 100%;margin: 0 auto">
+    <div>
+        <div align="center" style="font-size:22pt; margin: 25px auto 3px auto;">
+            <span th:text="${data.companyName}">广州智干电子商务科技有限公司</span>
+        </div>
+        <div align="center" style="font-size: 12pt">
+            公司地址 : <span th:text="${data.companyAddress}">广州市海珠区琶洲大道83号1602-1房</span>
+        </div>
+        <hr style="border: 0;border-bottom: 2px solid black"/>
+        <table class="headTable">
+            <tbody>
+            <tr>
+                <td>供方名称 : <span th:text="${data.supplierName}">眼镜供应商</span></td>
+                <td>订单编号 : <span th:text="${data.orderId}">PO1800185</span></td>
+            </tr>
+            <tr>
+                <td>供方联系人 : <span th:text="${data.supplierPeople}"></span></td>
+                <td>电话 : <span th:text="${data.companyTelephone}"></span></td>
+            </tr>
+            <tr>
+                <td>供方电话 : <span th:text="${data.supplierPhone}"></span></td>
+                <td>日期 : <span th:text="${data.billDate}"></span></td>
+            </tr>
+            <tr>
+                <td colspan="2">供方地址 : <span th:text="${data.supplierAddress}"></span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="width: 100%" class="clear">
+        <div align="center" style="font-size: 11pt;font-weight: bold; margin: 3px auto;">采购订单</div>
+        <table class="header">
+            <tr>
+                <th style="width:22pt;">序号</th>
+                <th style="width:55pt;">产品名称</th>
+                <th style="width:44pt;">产品型号</th>
+                <th style="width:55pt;">SKU</th>
+                <th style="width:22pt;">单位</th>
+                <th style="width:44pt;">订购数量</th>
+                <th style="width:33pt;">单价</th>
+                <th style="width:55pt;">金额(RMB)</th>
+                <th style="width:33pt;">装箱率</th>
+                <th style="width:55pt;">外箱<br/>长X宽X高(CM)</th>
+                <th style="width:70pt;">交货日期</th>
+            </tr>
+            <tr th:each="item :${data.list}">
+                <td><span th:text="${item.num}"></span></td>
+                <td><span th:text="${item.skuName}"></span></td>
+                <td><span th:text="${item.skuType}"></span></td>
+                <td><span th:text="${item.skuId}"></span></td>
+                <td><span th:text="${item.unit}"></span></td>
+                <td><span th:text="${item.quantity}"></span></td>
+                <td><span th:text="${item.unitPriceWithTax}"></span></td>
+                <td><span th:text="${item.amountWithTax}"></span></td>
+                <td><span th:text="${item.packingRate}"></span></td>
+                <td><span th:text="${item.producPackingInfoEn}"></span></td>
+                <td><span th:text="${item.remark}"></span></td><!--这个位置用备注-->
+            </tr>
+            <tr style="height: 20px">
+                <td colspan="11" style="text-align: left; padding: 0 5px">运费 : <span th:text="${data.freight}"></span>
+                </td>
+            </tr>
+            <tr style="height: 20px">
+                <td colspan="7" style="text-align: left;border-right: 0;padding: 0 5px">合计 : <span
+                        th:text="${data.totalAmountCN}"></span>
+                </td>
+                <td colspan="4" style="text-align: left;border-left: 0;padding: 0 5px"><span
+                        th:text="${data.totalAmount}"></span></td>
+            </tr>
+        </table>
+    </div>
+    <div class="orderProvisionContent" th:utext="${data.orderProvision}"></div>
+    <div>
+        <table border="0" style="margin-top: 1px;">
+            <tr>
+                <td><strong>需方确认 :&nbsp;<span th:text="${data.purchaser}"></span></strong></td>
+                <td style="padding-left: 160px;"><strong>供方确认 :</strong></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><strong>签署日期 :&nbsp;<span
+                        th:text="${#dates.format(data.signedOnDate,'yyyy年MM月dd日')}"></span></strong>
+                </td>
+                <td style="padding-left: 160px;"><strong>签署日期 :&nbsp;&nbsp;&nbsp;年 &nbsp;&nbsp;月&nbsp;&nbsp;日</strong>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

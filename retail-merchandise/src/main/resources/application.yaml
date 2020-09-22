@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: dev
+
+## 设置日志级别
+logging:
+  level:
+    root: info
+
+## web服务开启端口
+# context-path 表示所有api的前缀
+server:
+  port: 8080
+
+ribbon:
+    ReadTimeout: 10000
+    ConnectTimeout: 5000
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+  auto-runtime-dialect: true
+

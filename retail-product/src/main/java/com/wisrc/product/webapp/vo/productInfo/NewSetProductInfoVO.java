@@ -1,0 +1,99 @@
+package com.wisrc.product.webapp.vo.productInfo;
+
+import com.wisrc.product.webapp.vo.declareLabel.set.SetDeclareLabelVO;
+import com.wisrc.product.webapp.vo.productAccessory.set.SetProductAccessoryVO;
+import com.wisrc.product.webapp.vo.productPackingInfo.ProductPackingInfoVO;
+import com.wisrc.product.webapp.vo.productSales.ProductSalesVO;
+import com.wisrc.product.webapp.vo.set.SetProductDefineVO;
+import com.wisrc.product.webapp.vo.productInfo.add.*;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.List;
+
+/**
+ * 聚合产品信息
+ */
+@Data
+@ApiModel
+public class NewSetProductInfoVO {
+    //图片
+    @Valid
+    @NotNull(message = "参数[imagesList]不能为空")
+    @ApiModelProperty(value = "产品图片", required = true)
+    private List<ProductImagesVO> imagesList;
+
+    //信息
+    @Valid
+    @NotNull(message = "参数[define]不能为空")
+    @ApiModelProperty(value = "产品基础信息", required = true)
+    private SetProductDefineVO define;
+
+    //加工
+    @Valid
+    @NotNull(message = "参数[machineInfoList]不能为空")
+    @ApiModelProperty(value = "产品加工", required = true)
+    private List<ProductMachineInfoVO> machineInfoList;
+
+    //包材
+    @Valid
+    @NotNull(message = "包材参数[machineInfoList]不能为空")
+    @ApiModelProperty(value = "包材", required = true)
+    private List<ProductMachineInfoVO> packingMaterialList;
+
+    //描述
+    @Valid
+    @NotNull(message = "参数[detailsInfo]不能为空")
+    @ApiModelProperty(value = "产品描述", required = true)
+    private ProductDetailsInfoVO detailsInfo;
+
+    //申报规格
+    @Valid
+    @NotNull(message = "参数[specificationsInfo]不能为空")
+    @ApiModelProperty(value = "产品申报规格", required = true)
+    private ProductSpecificationsInfoVO specificationsInfo;
+
+    //申报规格
+    @Valid
+    @NotNull(message = "参数[declareInfo]不能为空")
+    @ApiModelProperty(value = "产品申报信息", required = true)
+    private ProductDeclareInfoVO declareInfo;
+
+
+    //特性标签(新改)
+    @Valid
+    @NotNull(message = "参数[declareLabelList]不能为空")
+    @ApiModelProperty(value = "特性标签(新改)", required = true)
+    private List<SetDeclareLabelVO> declareLabelList;
+
+    //配件(新增)
+    @Valid
+    @NotNull(message = "参数[accessoryList]不能为空")
+    @ApiModelProperty(value = "配件(新增)", required = true)
+    private List<SetProductAccessoryVO> accessoryList;
+
+    //装箱信息(新增)
+    @Valid
+    @NotNull(message = "参数[packingInfo]不能为空")
+    @ApiModelProperty(value = "装箱信息(新增)", required = true)
+    private ProductPackingInfoVO packingInfo;
+
+    //销售信息(新增)
+    @Valid
+    @NotNull(message = "销售信息[productSales]不能为空")
+    @ApiModelProperty(value = "销售信息(新增)", required = true)
+    private ProductSalesVO productSales;
+
+//    //产品申报自定义标签数组
+//    @Valid
+//    @ApiModelProperty(value = "产品申报自定义标签数组")
+//    private List<CustomLabelVO> customLabelList;
+//
+//    //产品申报自定义标签数组
+//    @Valid
+//    @ApiModelProperty(value = "产品自定义配件数组")
+//    private List<CustomAccessoryVO> customAccessoryList;
+}

@@ -1,0 +1,50 @@
+## 使用druid配置数据源
+spring:
+  application:
+    name: purchase-order-dev
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: matrix
+      password: Matrix_2018
+      url: jdbc:mysql://49.4.10.211:8635/matrix_purchase?characterEncoding=UTF-8
+      max-active: 20
+      validation-query: SELECT 1 FROM DUAL
+      initial-size: 10
+      max-wait: 60000
+  redis:
+    database: 0
+    port: 6379
+    host: 49.4.10.118
+    timeout: 800000
+    password:
+    pool:
+      max-active: 10000
+      max-wait: 100000
+      max-idle: 8
+      min-idle: 0
+## eureka server 地址， 根据实际情况设置eureka server地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://49.4.10.118:8080/eureka
+  instance:
+    prefer-ip-address: true
+
+server:
+  servlet:
+    context-path: /purchase
+
+erp:
+  product: ZUUL-SERVER
+  supplier: ZUUL-SERVER
+  sys: ZUUL-SERVER
+  warehouse: ZUUL-SERVER
+  images: ZUUL-SERVER
+  inspection: ZUUL-SERVER
+  operation: ZUUL-SERVER
+  basic: ZUUL-SERVER
+  code: ZUUL-SERVER
+  wms: ZUUL-SERVER
+  replenishment: ZUUL-SERVER
