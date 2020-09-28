@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 209715200
+      max-request-size: 209715200
+## max-file-size 设置默认上后攒文件最大值，单位M
+
+## 设置日志级别
+logging:
+  level:
+    root: info
+
+## web服务开启端口
+# context-path 表示所有api的前缀
+server:
+  port: 8080
+
+obs:
+  endPoint: obs.cn-north-1.myhwclouds.com
+  ak: GHLIUPMPSKLFBAN4D1J6
+  sk: oVqSEyF2p9xmbItMGkyKXXbUpFPb89I7t8VPcrzv
