@@ -5,7 +5,7 @@
 - 控制台地址：http://localhost:8080/ui
 - 账号/密码：admin/123456
 
-![./doc/index.png](./doc/index.png)
+![./doc/index.png](https://github.com/hzwy23/wisrc/blob/master/doc/index.png)
 
 # 数据库
 - 支持数据库： MySQL
