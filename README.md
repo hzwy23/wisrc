@@ -21,3 +21,9 @@ mvn clean package -DskipTests=true
 ## 2. 启动服务
 java -jar retail-gateway/target/retail-gateway-0.0.1-SNAPSHOT.jar 
 ```
+
+# DEMO体验版本
+- 地址： http://www.wisrc.com:8080/ui
+- 账号/密码：admin/123456
+
+**清不要随意删除里边的内容**
